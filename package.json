@@ -1,0 +1,30 @@
+{
+  "name": "loopback-as-intended",
+  "version": "0.0.1",
+  "description": "loopback as a front framework",
+  "main": "index.js",
+  "scripts": {
+    "start": "rm -r ./bin/; webpack",
+    "js:watch": "webpack --progress --colors --watch",
+    "jade:watch": "jade -w -o output src/",
+    "less:build": "lessc -x src/style.less output/style.css",
+    "less:watch": "watch -n 5 npm run less:build"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "coffee-loader": "~0.7.2",
+    "coffee-script": "~1.10.0",
+    "css-loader": "~0.23.1",
+    "faker": "~3.1.0",
+    "jade": "~1.11.0",
+    "jade-loader": "~0.8.0",
+    "less": "~2.7.1",
+    "less-loader": "~2.2.3",
+    "style-loader": "~0.13.1",
+    "webpack": "^1.13.1"
+  },
+  "devDependencies": {
+    "html-webpack-plugin": "^2.24.0"
+  }
+}

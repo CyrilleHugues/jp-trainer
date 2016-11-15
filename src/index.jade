@@ -1,0 +1,28 @@
+html
+  head
+    meta(charset="utf-8")
+    link(rel="stylesheet" href="style.css")
+    script(type="text/javascript" src="main.js" charset="utf-8")
+    link(href="https://fonts.googleapis.com/css?family=Dosis" rel="stylesheet")
+  body
+    box
+      header Train your japanese
+      subheader
+        select(v-model="type")
+          option(value='hiragana') Hiragana
+          option(value='katakana') Katakana
+          option(value='kanji') Kanji
+      trailer(v-if="!currentChar && type !== ''") SOON
+      training-room(v-if="currentChar")
+        character {{ currentChar.sym }}
+        .separator
+        form(v-on:submit.prevent="validate")
+          .try
+            input(v-model="guess" type="text" size="7" placeholder="Guess ?")
+          oops(v-if="erroredChar") Embarassing... {{ erroredChar.sym }} is {{ erroredChar.tra }}.
+      frequent-problems(v-if="errorExists")
+        bk-title Errors during this session
+        list
+          char(v-for="error in sessionErrors[type]")
+            span {{ error.sym }}
+            span.tooltip {{ error.sym }} is {{ error.tra }}.

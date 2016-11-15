@@ -1,0 +1,159 @@
+@bgcolor: #FDF3E7;
+@darker: darken(@bgcolor, 10%);
+
+html {
+  height: 100%;
+}
+
+trailer {
+  display: flex;
+  justify-content: center;
+  font-size: 2em;
+  margin-top: 1em;
+}
+
+body {
+  display: flex;
+  font-family: 'Dosis';
+  background-color: @bgcolor;
+  justify-content: center;
+  align-items: center;
+  height: calc(100%-16px);
+
+  box {
+    width: 100%;
+  }
+
+  header {
+    margin-top: 0.3em;
+    display: flex;
+    justify-content: center;
+    font-size: 8vmin;
+  }
+  subheader {
+    background-color: lighten(@bgcolor, 2%);
+    margin: auto;
+    display: flex;
+    justify-content: center;
+    font-size: 4vmin;
+    max-width: 5em;
+    padding: 5px;
+    margin-top: 10px;
+    border-radius: 5px;
+
+    &:hover {
+      background-color: white;
+    }
+
+    select {
+      width: 100%;
+      border: none;
+      font-size: 1em;
+      background-color: transparent;
+      &:focus {
+        outline: none;
+      }
+    }
+  }
+
+  training-room {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1em;
+
+    .separator {
+      width: 2em;
+    }
+    character {
+      text-align: center;
+      font-size: 10em;
+    }
+    form {
+      margin: 0.3em;
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      justify-content: space-around;
+      flex-direction: column;
+      .try {
+        margin-right: 1em;
+        input {
+          width: 100%;
+          height: 50px;
+          border: none;
+          border-bottom: gray 1px solid;
+          font-size: 2em;
+          background-color: @bgcolor;
+          &:focus {
+            outline: none;
+          }
+        }
+      }
+      oops {
+        display: flex;
+        color: #C63D0F;
+        justify-content: center;
+        margin: 1em;
+        font-size: 1.2em;
+      }
+    }
+  }
+
+  frequent-problems {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 80%;
+    max-width: 40em;
+    margin: auto;
+    background-color: @darker;
+    border-radius: 5px;
+
+    bk-title {
+      margin-top: 0.4em;
+      display: block;
+      text-decoration: underline;
+      font-size: 1.2em;
+    }
+    list {
+      padding: 0.5em;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      width: 80%;
+      char {
+        position: relative;
+        display: inline-block;
+        padding: 5px;
+        border-radius: 5px;
+        &:hover .tooltip {
+          visibility: visible;
+        }
+        .tooltip {
+          width: 120px;
+          bottom: 120%;
+          left: 50%;
+          margin-left: -60px;
+          background-color: @bgcolor;
+          border-radius: 5px;
+          visibility: hidden;
+          position: absolute;
+          text-align: center;
+
+          &:after {
+              content: " ";
+              position: absolute;
+              top: 100%; /* At the bottom of the tooltip */
+              left: 50%;
+              margin-left: -5px;
+              border-width: 5px;
+              border-style: solid;
+              border-color: @bgcolor transparent transparent transparent;
+          }
+        }
+      }
+    }
+  }
+}
